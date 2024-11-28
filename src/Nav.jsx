@@ -1,31 +1,49 @@
-import { useEffect, useState } from "react";
-import "./Nav.css";
-import logo from "./assets/Netflix_Logos_01-Wordmark (1).jpg";
-const Nav = () => {
-  const [show, handleShow] = useState(false);
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 100) {
-        handleShow(true);
-      } else handleShow(false);
-    });
-    if (window.scrollY > 100) {
-      handleShow(true);
-    } else handleShow(false);
-    return () => {
-      window.removeEventListener("scroll");
-    };
-  }, []);
+import Netflixlogo from "./assets/Netflix_Logos_01-Wordmark (1).jpg";
+
+import SearchIcon from "@mui/icons-material/Search";
+import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
+import AccountBoxIcon from "@mui/icons-material/AccountBox";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+// import "Nav.css";
+
+function Nav() {
   return (
-    <div className={`nav ${show && "nav__black"}`}>
-      <img className="nav__logo" src={logo} alt="Netflix Logo" />
-      <img
-        className="nav__avatar"
-        src="https://i.pinimg.com/originals/0d/dc/ca/0ddccae723d85a703b798a5e682c23c1.png"
-        alt="Avatar logo"
-      />
+    <div className="header_outer_container">
+      <div className="header_container">
+        <div className="header_left">
+          <ul>
+            <li>
+              <img src={Netflixlogo} alt="Netflix_Logos" width="100" />
+            </li>
+            <li>Netflix</li>
+            <li>Home</li>
+            <li>Tvshows</li>
+            <li>Movies</li>
+            <li>Latest</li>
+            <li>MyList</li>
+            <li>Browse by Languages</li>
+          </ul>
+        </div>
+
+        <div className="header_right">
+          <ul>
+            <li>
+              <SearchIcon />
+            </li>
+            <li>
+              <NotificationsNoneIcon />
+            </li>
+            <li>
+              <AccountBoxIcon />
+            </li>
+            <li>
+              <ArrowDropDownIcon />
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   );
-};
+}
 
 export default Nav;
