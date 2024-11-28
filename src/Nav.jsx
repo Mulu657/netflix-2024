@@ -4,17 +4,17 @@ import logo from "./assets/Netflix_Logos_01-Wordmark (1).jpg";
 const Nav = () => {
   const [show, handleShow] = useState(false);
   useEffect(() => {
-    // window.addEventListener("scroll", () => {
-    //   if (window.scrollY > 100) {
-    //     handleShow(true);
-    //   } else handleShow(false);
-    // });
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 100) {
+        handleShow(true);
+      } else handleShow(false);
+    });
     if (window.scrollY > 100) {
       handleShow(true);
     } else handleShow(false);
-    // return () => {
-    //   window.removeEventListener("scroll");
-    // };
+    return () => {
+      window.removeEventListener("scroll");
+    };
   }, []);
   return (
     <div className={`nav ${show && "nav__black"}`}>
