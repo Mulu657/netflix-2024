@@ -1,11 +1,11 @@
-import React,{useEffect, useState} from "react";
-import "./Banner.css"
+import React, { useEffect, useState } from "react";
+import "./Banner.css";
 import axios from "./axios";
 import requests from "./requests";
 
 const Banner = () => {
- const [movie, setmovie] = useState([])
- useEffect(() => {
+  const [movie, setmovie] = useState([]);
+  useEffect(() => {
     async function fetchData() {
       const request = await axios.get(requests.fetchNetflixOriginals);
       setmovie(
@@ -20,8 +20,8 @@ const Banner = () => {
   function truncate(str, n) {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   }
-    return (  
-           <header
+  return (
+    <header
       className="banner"
       style={{
         backgroundSize: "cover",
@@ -43,8 +43,7 @@ const Banner = () => {
       </div>
       <div className="banner__fadeBottom" />
     </header>
+  );
+};
 
-    );
-}
- 
 export default Banner;
